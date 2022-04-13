@@ -36,7 +36,7 @@ jobs:
           echo "BRANCH=$(cat latestRelease.json | jq -r '.target_commitish')" >> $GITHUB_ENV
 
       - name: Download Source Code
-        run: wget -c $SOURCE_CODE_URL && unzip $RELEASE_VERSION && ls -lrt && mv ${{github.repository_owner}}* studio
+        run: wget -c $SOURCE_CODE_URL && unzip $RELEASE_VERSION && ls -lrt && mv Apicurio* studio
         
       # We have faced issues in the past where a github release was created from a wrong commit
       # This step will ensure that the release was created from the right commit  
