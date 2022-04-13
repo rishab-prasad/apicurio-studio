@@ -31,7 +31,7 @@ jobs:
       - name: Fetch required Details
         run: |
           touch latestRelease.json && curl https://api.github.com/repos/apicurio/apicurio-studio/releases | jq '.[0]' > latestRelease.json
-          echo "RELEASE_VERSION=$(cat latestRelease.json | jq -r '.name')" >> $GITHUB_ENV
+          echo "RELEASE_VERSION=$(cat latestRelease.json | jq -r '.tag_name')" >> $GITHUB_ENV
           echo "SOURCE_CODE_URL=$(cat latestRelease.json | jq -r '.zipball_url')" >> $GITHUB_ENV
           echo "BRANCH=$(cat latestRelease.json | jq -r '.target_commitish')" >> $GITHUB_ENV
 
